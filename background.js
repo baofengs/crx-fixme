@@ -1,6 +1,6 @@
 
 function sendMessageToContentScript(message) {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function sendMessage (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, message);
     });
 }
@@ -8,18 +8,15 @@ function sendMessageToContentScript(message) {
 chrome.contextMenus.create({
     title: 'Fixme',
     contexts: ['selection'],
-    onclick: function (params) {
-        sendMessageToContentScript({
-            cmd: 'fixme',
-            value: params.selectionText
-        });
+    onclick: function sendMessage () {
+        sendMessageToContentScript({ cmd: 'fixme' });
     }
 });
 
-chrome.commands.onCommand.addListener(function (command) {
+chrome.commands.onCommand.addListener(function sendMessage (command) {
     if (command === 'toggle-further-fixme') {
-        sendMessageToContentScript({ cmd: 'kbd-fixme' });
+        sendMessageToContentScript({ cmd: 'fixme' });
     } else if (command === 'toggle-further-clear') {
-        sendMessageToContentScript({ cmd: 'kbd-clear' });
+        sendMessageToContentScript({ cmd: 'clear' });
     }
 });
