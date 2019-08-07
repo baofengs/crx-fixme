@@ -1,0 +1,54 @@
+{
+    "manifest_version": 2,
+    "name": "Fixme",
+    "version": "1.0.0",
+    "description": "This extension fix the contents of what you selected for a better reading experience",
+    "homepage_url": "https://arts.sanbaofengs.com",
+    "icons": {
+        "32": "crx-fixme-logo.png",
+        "48": "crx-fixme-logo.png",
+        "128": "crx-fixme-logo.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "crx-fixme-logo.png",
+            "32": "crx-fixme-logo.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "Fix what you selected for a better reading experience"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "md5.js",
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": ["contextMenus", "tabs"],
+    "commands": {
+        "toggle-further-fixme": {
+            "suggested_key": {
+                "default": "Alt+X",
+                "mac": "Alt+X"
+            },
+            "description": "Toggle Fixme"
+        },
+        "toggle-further-clear": {
+            "suggested_key": {
+                "default": "Alt+Z",
+                "mac": "Alt+Z"
+            },
+            "description": "Toggle Fixme Clear"
+        }
+    }
+}
