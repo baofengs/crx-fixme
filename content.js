@@ -27,7 +27,7 @@ function doFixme (content) {
     if (!content) return;
     const [$fixme, className] = createFixme(content);
     if (!$fixme) return;
-    const $fixmeContent = createFixContent(content);
+    const $fixmeContent = createFixmeContent(content);
     const $fixmeCloseBtn = createFixmeCloseBtn(className);
     $fixme.appendChild($fixmeCloseBtn);
     $fixme.appendChild($fixmeContent);
@@ -72,7 +72,7 @@ function createFixme (content) {
         fontSize: '16px',
         padding: "1em 2em .5em",
         background: '#fefefe',
-        boxShadow: '0 0 20px 0 rgba(0, 0, 0, .125)',
+        boxShadow: '0 0 20px 0 rgba(0, 0, 0, .25)',
         resize: 'vertical',
         overflow: 'scroll',
         minHeight: '2.5em'
@@ -81,7 +81,7 @@ function createFixme (content) {
     return [createElement('div', '', className, style), className];
 }
 
-function createFixContent (content) {
+function createFixmeContent (content) {
     const style = {
         width: '100%',
         wordBreak: 'break-all',
