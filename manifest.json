@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Fixme",
     "version": "1.0.0",
-    "description": "This extension fix the contents of what you selected for a better reading experience",
+    "description": "This extension fix the selected contents to the top of current page for a better reading experience",
     "homepage_url": "https://arts.sanbaofengs.com",
     "icons": {
         "32": "crx-fixme-logo.png",
